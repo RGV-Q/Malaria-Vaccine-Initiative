@@ -1,1 +1,1 @@
-# Malaria-Vaccine-Initiative
+Malaria Vaccine Initiative
