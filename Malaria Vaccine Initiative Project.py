@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[2]:
 
 
 import pandas as pd
@@ -9,20 +9,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# In[ ]:
+# In[3]:
 
 
 import os
 os.chdir ('/users/grace/documents/datasets/')
 
 
-# In[ ]:
+# In[4]:
 
 
 pwd
 
 
-# In[1]:
+# In[5]:
 
 
 from IPython.display import Image
@@ -30,7 +30,7 @@ from IPython.core.display import HTML
 Image(url= "https://media.pri.org/s3fs-public/styles/story_main/public/story/images/18759_lores.jpg")
 
 
-# In[ ]:
+# In[6]:
 
 
 df= pd.read_csv('Malaria_report.csv')
@@ -40,7 +40,7 @@ df.head ()
 #It looks messy. We need to clean it.
 
 
-# In[ ]:
+# In[7]:
 
 
 print (df.shape)
@@ -49,7 +49,7 @@ print (df.dtypes)
 #Let's first collect parameters.
 
 
-# In[ ]:
+# In[8]:
 
 
 df_numeric = df.select_dtypes (include=[np.number])
@@ -59,7 +59,7 @@ print(numeric_cols)
 #Identifying numeric and non-numeric columns will be useful later when we are using values for our plots later on.
 
 
-# In[ ]:
+# In[9]:
 
 
 df_non_numeric=df.select_dtypes (exclude=[np.number])
@@ -69,7 +69,7 @@ print (non_numeric_cols)
 #Identifying numeric and non-numeric columns will be useful later when we are using values for our plots later on.
 
 
-# In[ ]:
+# In[10]:
 
 
 cols = df.columns [:20] 
@@ -79,7 +79,7 @@ sns.heatmap (df[cols].isnull(), cmap=sns.color_palette(colors))
 #Let's visualize missing data through a heatmap.
 
 
-# In[ ]:
+# In[11]:
 
 
 df= pd.read_csv('Malaria_report.csv')
@@ -88,7 +88,7 @@ df.head ()
 #Now let's look at our dataset again, while comparing it to our heatmap above.
 
 
-# In[ ]:
+# In[12]:
 
 
 df= pd.read_csv('Malaria_report.csv')
@@ -101,7 +101,7 @@ df.drop (to_drop, inplace=True, axis=1)
 #let's drop unneccesary data.
 
 
-# In[ ]:
+# In[13]:
 
 
 df.head ()
@@ -109,7 +109,7 @@ df.head ()
 #Now let's look at our updated Dataset.
 
 
-# In[ ]:
+# In[14]:
 
 
 df.info ()
@@ -117,7 +117,7 @@ df.info ()
 #Let's collect our  parameters again.
 
 
-# In[ ]:
+# In[15]:
 
 
 dups = df
@@ -127,7 +127,7 @@ print (dups.any ())
 #I know we don't have duplicates, but I just want to make sure.
 
 
-# In[ ]:
+# In[16]:
 
 
 df= pd.read_csv('Malaria_report.csv')
@@ -138,7 +138,7 @@ print(df.info())
 # Finally, I try to find and identify the presence of Outliers in my dataset.
 
 
-# In[ ]:
+# In[17]:
 
 
 df.describe ()
@@ -146,7 +146,7 @@ df.describe ()
 # I first look at my data again, to physically check for outliers.
 
 
-# In[ ]:
+# In[18]:
 
 
 Q1 = df.quantile(0.25)
@@ -157,7 +157,7 @@ print(IQR)
 # Here, I chose to identify outliers with Interquartile Range (IQR).
 
 
-# In[ ]:
+# In[19]:
 
 
 print(df < (Q1 - 1.5 * IQR))
@@ -169,7 +169,7 @@ print(df < (Q1 - 1.5 * IQR))
 # I now move to analysis portion of my work.
 
 
-# In[ ]:
+# In[20]:
 
 
 ## Now the data is ready for analysis.
@@ -181,7 +181,7 @@ print(df < (Q1 - 1.5 * IQR))
 #Hypothesis 3: Ending Malaria saves lives and stops the cycle of poverty.
 
 
-# In[ ]:
+# In[21]:
 
 
 ## This graph depicts how ending Malaria stimulates Economy.
@@ -189,7 +189,7 @@ print(df < (Q1 - 1.5 * IQR))
 df.plot (x='Life Ladder', y='Log GDP per capita', kind='scatter')
 
 
-# In[ ]:
+# In[22]:
 
 
 ## This illustration proves that ending Malaria helps keep us safer and healthier.
@@ -206,9 +206,6 @@ df= pd.read_csv('Malaria_report.csv')
 
 df.plot (x='Healthy life expectancy at birth', y='Positive affect', kind='bar', color='pink')
 plt.show()
-
-
-# In[ ]:
 
 
 This concludes my research.
