@@ -13,6 +13,7 @@ Hypothesis 3: Ending Malaria saves lives and stops the cycle of poverty.
 
 
 References:
+
 https://www.malarianomore.org/about-us/
 
 https://www.kaggle.com/search?q=malaria+in%3Adatasets
